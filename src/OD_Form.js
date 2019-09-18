@@ -20,18 +20,44 @@ class OD_Form extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Origin"
-            required
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-          <input type="text" placeholder="Destination" required />
-          <input type="submit" value="Submit" />
-        </form>
+      <div class="level-left">
+        <div class="container">
+          <div class="field">
+            <label class="label">Origin</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="1000 Morris Ave, Union, NJ 07083"
+              ></input>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Destination</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="1000 Morris Ave, Union, NJ 07083"
+              ></input>
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-text">Cancel</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
