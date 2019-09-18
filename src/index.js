@@ -1,7 +1,8 @@
+import './App.sass'
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import OD_Form from "./OD_Form";
-import "./index.css";
+
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
     );
   }
 }
+
 
 ReactDOM.render(
   <div>
