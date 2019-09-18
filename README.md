@@ -4,6 +4,8 @@ Kean Routes is a Fall 2019 independent study, continuing off of a 2018-2019 acad
 
 ## Installation
 
+Take a look at the React README.md!
+
 ``
 code
 ``
