@@ -8,7 +8,9 @@ class App extends Component {
     return (
       <div class="level" className="App">
         <div class="container">
-          <h1 class="title">Hello, React!</h1>
+          <div class="content">
+            <h1 class="title">Hello, React!</h1>
+          </div>
         </div>
       </div>
     );
