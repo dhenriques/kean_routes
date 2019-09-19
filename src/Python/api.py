@@ -1,4 +1,9 @@
 from flask import Flask, request #import main Flask class and request object
+#import gmapScraper as ml
+#import bingMapScraper as m2
+#import wazeScraper as m3
+#import mapQuestScraper as m4
+#import hereWeGoScraper as m5
 
 app = Flask(__name__) #create the Flask app
 
@@ -13,11 +18,11 @@ def query_example():
 #     origin = req['origin']
 #     destination = req['destination']
 
-    #googleMapsData = googleMaps(origin,dest)
-    #bingMapsData = bingMaps(origin,dest)
-    #wazeData = waze(origin,dest)
-    #mapQuestData = mapQuest(origin,dest)
-    #hereWeGoData = hereWeGo(origin,dest)
+    #googleMapsData = m1.scrape(origin,dest)
+    #bingMapsData = m2.scrape(origin,dest)
+    #wazeData = m3.scrape(origin,dest)
+    #mapQuestData = m4.scrape(origin,dest)
+    #hereWeGoData = m5.scrape(origin,dest)
 
     #sort and organize results
     #embed in HTML for stylization with css ID from bulma or css file OR return all information as JSON and make React handle it
