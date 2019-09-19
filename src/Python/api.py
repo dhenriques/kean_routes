@@ -6,6 +6,24 @@ app = Flask(__name__) #create the Flask app
 def query_example():
     return "Hello world!"
 
+# @app.route('/scrapeRoutes', method=['POST'])
+# def get_json():
+#     req = request.get_json()
+
+#     origin = req['origin']
+#     destination = req['destination']
+
+    #googleMapsData = googleMaps(origin,dest)
+    #bingMapsData = bingMaps(origin,dest)
+    #wazeData = waze(origin,dest)
+    #mapQuestData = mapQuest(origin,dest)
+    #hereWeGoData = hereWeGo(origin,dest)
+
+    #sort and organize results
+    #embed in HTML for stylization with css ID from bulma or css file OR return all information as JSON and make React handle it
+    #return that all
+    #GGWP
+
 # @app.route('/form-example', methods=['GET', 'POST']) #allow both GET and POST requests
 # def form_example():
 #     if request.method == 'POST': #this block is only entered when the form is submitted
