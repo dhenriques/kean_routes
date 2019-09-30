@@ -96,16 +96,14 @@
 
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./HTML Files/index.js";
-import PageNotFound from "./HTML Files/404.js";
-import Header from "./HTML Files/header.js";
+import Index from "./components/index.js";
+import PageNotFound from "./components/404.js";
 
 function App() {
   return (
-    <div className="container-fluid">
-      <Header />
+    <div>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Index} />
         <Route component={PageNotFound} />
       </Switch>
     </div>
