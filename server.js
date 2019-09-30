@@ -17,9 +17,9 @@ router.get("/", function(req, res) {
   res.sendFile(path + "index.html"); // Sends index to browser
 });
 
-// router.get("/about", function(req, res) {
-//   res.sendFile(path + "about.html");
-// });
+router.get("/about", function(req, res) {
+  res.sendFile(path + "about.html");
+});
 
 // router.get("/contact", function(req, res) {
 //   res.sendFile(path + "contact.html");

@@ -20,24 +20,19 @@ class OD_Form extends Component {
 
   render() {
     return (
-      <div class="level-left">
-        <div class="container">
-          <div class="field">
-            <label class="label">Origin</label>
+      <div class="is-fluid has-background-white">
+        <div class="field container section">
+          <label class="label is-medium">Origin</label>
+          <div class="control">
+            <input
+              class="input is-medium"
+              type="text"
+              placeholder="1000 Morris Ave, Union, NJ 07083"
+            ></input>
+            <label class="label is-medium">Destination</label>
             <div class="control">
               <input
-                class="input"
-                type="text"
-                placeholder="1000 Morris Ave, Union, NJ 07083"
-              ></input>
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="label">Destination</label>
-            <div class="control">
-              <input
-                class="input"
+                class="input is-medium"
                 type="text"
                 placeholder="1000 Morris Ave, Union, NJ 07083"
               ></input>
@@ -48,13 +43,13 @@ class OD_Form extends Component {
                 <i class="fas fa-check"></i>
               </span>
             </div>
-          </div>
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link">Submit</button>
-            </div>
-            <div class="control">
-              <button class="button is-text">Cancel</button>
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="control button is-primary">Submit</button>
+              </div>
+              <div class="control">
+                <button class="control button is-light">Cancel</button>
+              </div>
             </div>
           </div>
         </div>

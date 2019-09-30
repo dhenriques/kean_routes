@@ -1,3 +1,6 @@
+import React from "react";
+
+const output = () => (
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,3 +19,6 @@
     </div>
   </head>
 </html>
+);
+
+export default output;
