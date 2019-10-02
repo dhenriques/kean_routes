@@ -4,7 +4,7 @@ import React, { Component } from "react";
 class Footer extends Component {
   render() {
     return (
-      <footer class="footer has-background-white">
+      <footer class="footer has-background-light">
         <div class="container">
           <hr />
           <div class="columns">

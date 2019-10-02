@@ -20,7 +20,7 @@ class OD_Form extends Component {
 
   render() {
     return (
-      <div class="is-fluid has-background-white">
+      <div class="is-fluid has-background-light">
         <div class="field container section">
           <label class="label is-medium">Origin</label>
           <div class="control">
@@ -45,7 +45,7 @@ class OD_Form extends Component {
             </div>
             <div class="field is-grouped">
               <div class="control">
-                <button class="control button is-primary">Submit</button>
+                <button class="control button is-link">Submit</button>
               </div>
               <div class="control">
                 <button class="control button is-light">Cancel</button>

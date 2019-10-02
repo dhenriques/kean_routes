@@ -24,8 +24,8 @@ class OD_Form extends Component {
 
   render() {
     return (
-      <div class="is-fluid has-background-white">
-        <div class="field container section">
+      <div class="section has-background-light">
+        <div class="container ">
           <label class="label is-medium">Origin</label>
           <div class="control">
             <input
@@ -49,7 +49,7 @@ class OD_Form extends Component {
             </div>
             <div class="field is-grouped">
               <div class="control">
-                <button class="control button is-primary">Submit</button>
+                <button class="control button is-link">Submit</button>
               </div>
               <div class="control">
                 <button class="control button is-light">Cancel</button>
@@ -65,7 +65,6 @@ class OD_Form extends Component {
 const output = () => (
   <div>
     <Navbar />
-    {/* <Header /> */}
     <OD_Form />
     <Footer />
   </div>
