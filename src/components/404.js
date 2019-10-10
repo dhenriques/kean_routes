@@ -6,7 +6,7 @@ const output = () => (
     <nav class="navbar is-warning is-bold" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          <img src="/logos/Kean_Brand-2018-white.png" />
+          <img src="/logos/Kean_Brand-2018-white.png" alt="Kean University"/>
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
