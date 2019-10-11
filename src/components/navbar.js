@@ -45,7 +45,7 @@ class Navbar extends Component {
 
 
         <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-end">
+          <div class="navbar-end has-text-right">
             <Link to="/" class="navbar-item">
               Home
               </Link>
