@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import "react-bulma-components/full";
-import Header from "./header.js";
 import Footer from "./footer.js";
 import Navbar from "./navbar.js";
 
-class OD_Form extends Component {
+class ODForm extends Component {
   constructor(props) {
     super(props);
     this.state = { value: "" };
@@ -24,38 +23,55 @@ class OD_Form extends Component {
 
   render() {
     return (
-      <div class="section has-background-light">
-        <div class="container ">
-          <label class="label is-medium">Origin</label>
-          <div class="control">
-            <input
-              class="input is-medium"
-              type="text"
-              placeholder="1000 Morris Ave, Union, NJ 07083"
-            ></input>
-            <label class="label is-medium">Destination</label>
-            <div class="control">
-              <input
-                class="input is-medium"
-                type="text"
-                placeholder="1000 Morris Ave, Union, NJ 07083"
-              ></input>
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
-            </div>
-            <div class="field is-grouped">
+      <div class="section has-background-white">
+        <div class="container">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Origin</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
               <div class="control">
-                <button class="control button is-link">Submit</button>
-              </div>
-              <div class="control">
-                <button class="control button is-light">Cancel</button>
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="1000 Morris Ave, Union, NJ 07083"
+                ></input>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Destination</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="1000 Morris Ave, Union, NJ 07083"
+                ></input>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label"></div>
+          <div class="field-body">
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-info">Submit</button>
+              </div>
+              <div class="control">
+                <button class="button is-cancel">Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     );
@@ -65,7 +81,7 @@ class OD_Form extends Component {
 const output = () => (
   <div>
     <Navbar />
-    <OD_Form />
+    <ODForm />
     <Footer />
   </div>
 );
