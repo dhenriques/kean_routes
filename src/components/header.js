@@ -6,23 +6,11 @@ class Header extends Component {
     return (
       <html lang="en">
         <section class="hero is-light">
-          <div class="hero-body">
-            <div class="container has-text-centered">
-              <h1 class="title is-spaced">Kean Routes</h1>
-              <h2 class="subtitle">
+          <div class="hero-body has-text-centered">
+              <p class="title is-2 is-spaced">Kean Routes</p>
+              <p class="subtitle is-6">
                 Compare all of your route options accross five map applications.
-            </h2>
-              {/* <Router>
-              <div class="buttons is-centered is-grouped">
-                <Link to="" class="control button is-primary">
-                  Sign up coming soon
-                </Link>
-                <Link to="/about" class="control button is-light">
-                  Find out more
-                </Link>
-              </div>
-            </Router> */}
-            </div>
+            </p>
           </div>
         </section>
       </html>
