@@ -13,7 +13,7 @@ Kean Routes is a Fall 2019 independent study, continuing off of a 2018-2019 acad
 You may need to install NodeJS and Yarn.
 
 
-To run the website locally,
+To run the website locally 
 ``
 npm start
 ``
