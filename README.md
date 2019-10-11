@@ -2,18 +2,20 @@
 
 Kean Routes is a Fall 2019 independent study, continuing off of a 2018-2019 academic research project. 
 
+## Todo
+
+* Use Google Maps Places API to autocomplete queries (up to ~70k free)
+* Display route data
+* Fill out about page
+
 ## Installation
 
-Take a look at the React README.md!
+You may need to install NodeJS and Yarn.
 
-``
-code
-``
 
-## Usage
-
+To run the website locally,
 ``
-code
+npm start
 ``
 
 ## Contributors
