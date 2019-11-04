@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" href="logos/Kean_Seal-2018.png">
 
   <div>
-    <section class="hero is-link is-bold">
+    <section class="hero is-link is-bold is-medium">
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand ">
           <a class="navbar-item" href="/">
@@ -34,11 +34,11 @@
           </div>
         </div>
       </nav>
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h1 class="title">KEAN Routes</h1>
-          <h2 class="subtitle">Find the best route accross multiple map applications</h2>
-        </div>
+      <div class="container has-text-centered is-fluid">
+        <p>
+        <h1 class="title">KEAN Routes</h1>
+        <h2 class="subtitle">Find the best route accross multiple map applications</h2>
+      </p>
       </div>
     </section>
 </head>
@@ -143,14 +143,14 @@
 
       function card(key) {
 
-        var html = '<div class="column is-one-third"><div class="card large"><div class="card-image"><figure class="image"> <img src="./logos/route.png" alt="Image"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-96x96"> <img src="' + mapLogo[key] + '" alt="Image"> </figure> </div> <div class="media-content"> <p class="is-size-5 is-bold">' + key + '</p> <p class="is-size-6">13 minutes</br>5.9 miles</br>Morris Ave and US-22 W</p> </div> </div> </div> </div> </div>';
+        var html = '<div class="column is-one-third"><div class="card large"><div class="card-image"><figure class="image"> <img src="./logos/route.png" alt="Image"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[key] + '" alt="Image"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + key + '</p> <p class="is-size-7">13 minutes</br>5.9 miles</br>Morris Ave and US-22 W</p> </div> </div> </div> </div> </div>';
 
         $("#cards").append(html);
       };
 
-     for (var key in mapLogo){
-       card(key)
-     }
+      for (var key in mapLogo) {
+        card(key)
+      }
 
 
 
