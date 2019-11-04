@@ -1,37 +1,12 @@
 <!DOCTYPE html>
-<html>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(
-      document.querySelectorAll(".navbar-burger"),
-      0
-    );
-
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-      // Add a click event on each of them
-      $navbarBurgers.forEach(el => {
-        el.addEventListener("click", () => {
-          // Get the target from the "data-target" attribute
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-
-          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-          el.classList.toggle("is-active");
-          $target.classList.toggle("is-active");
-        });
-      });
-    }
-  });
-</script>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KEAN Routes</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="icon" type="image/png" href="logos/Kean_Seal-2018.png">
 
   <div>
@@ -41,8 +16,7 @@
           <a class="navbar-item" href="/">
             <img src="./logos/Kean_Brand-2018-white.png" alt="Kean University" />
           </a>
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-            data-target="burger">
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="burger">
             <span aria-hidden="true" style="color:white"></span>
             <span aria-hidden="true" style="color:white"></span>
             <span aria-hidden="true" style="color:white"></span>
@@ -70,23 +44,31 @@
 </head>
 
 <body>
+  <div id="result" class="is-fluid has-background-light section">
+    <div class="container">
+      <div id="cards" class="row columns is-multiline">
+      </div>
+    </div>
+
+  </div>
   <section class="is-fluid has-background-light section">
     <div class="field container ">
       <label class="label is-medium">Origin</label>
       <div class="control">
-        <input class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ 07083"></input>
+        <input id="origin" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ 07083"></input>
       </div>
     </div>
     <div class="field container">
       <label class="label is-medium">Destination</label>
       <div class="control">
-        <input class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ 07083"></input>
+        <input id="destination" class="input is-medium" type="text"
+          placeholder="1000 Morris Ave, Union, NJ 07083"></input>
       </div>
     </div>
 
     <div class="field is-grouped container">
       <div class="control">
-        <button class="control button is-link">Submit</button>
+        <button id="submit" class="control button is-link">Submit</button>
       </div>
       <div class="control">
         <button class="control button is-light">Cancel</button>
@@ -94,6 +76,75 @@
     </div>
   </section>
 </body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(
+      document.querySelectorAll(".navbar-burger"),
+      0
+    );
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+      // Add a click event on each of them
+      $navbarBurgers.forEach(el => {
+        el.addEventListener("click", () => {
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle("is-active");
+          $target.classList.toggle("is-active");
+        });
+      });
+    }
+
+    $("#result").hide();
+
+    $("#submit").click(() => {
+      console.log("origin " + $("#origin").val() + " | dest " + $("#destination").val());
+      $.ajax({
+        url: "http://localhost:8000",
+        method: "POST",
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        crossDomain: true,
+        dataType: 'jsonp',
+        data: {
+          origin: $("#origin").val(),
+          destination: $("#destination").val()
+        },
+
+        success: (data) => {
+          console.log(data);
+          printSuccess(data);
+        },
+        error: () => {
+          alert("fail");
+        },
+      })
+    })
+
+
+    function printSuccess(data) {
+      
+      // every third needs new line
+     
+      var html = '<div class="column is-one-third"><div class="card large"><div class="card-image"><figure class="image"> <img src="./logos/route.png" alt="Image"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-96x96"> <img src="./logos/gmaps.png" alt="Image"> </figure> </div> <div class="media-content"> <p class="is-size-5 is-bold">Google Maps</p> <p class="is-size-6">13 minutes</br>5.9 miles</br>Morris Ave and US-22 W</p> </div> </div> </div> </div> </div>';
+
+      $("#cards").append(html);
+      $("#result").show();
+      console.log(data);
+    }
+
+
+  });
+
+
+
+
+</script>
 
 <footer class="footer has-background-light">
   <hr />
@@ -113,6 +164,5 @@
     </div>
   </div>
 </footer>
-
 
 </html>
