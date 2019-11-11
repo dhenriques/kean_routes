@@ -36,9 +36,9 @@
       </nav>
       <div class="container has-text-centered is-fluid">
         <p>
-        <h1 class="title">KEAN Routes</h1>
-        <h2 class="subtitle">Find the best route accross multiple map applications</h2>
-      </p>
+          <h1 class="title">Routes</h1>
+          <h2 class="subtitle">Find the best route accross multiple map applications</h2>
+        </p>
       </div>
     </section>
 </head>
@@ -53,10 +53,10 @@
   </div>
   <section class="is-fluid has-background-light section">
     <div class="field container ">
-      <label class="label is-medium">Origin</label>
-      <div class="control">
-        <input id="origin" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ 07083"></input>
-      </div>
+        <label class="label is-medium">Origin</label>
+        <div class="control">
+          <input id="origin" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ 07083"></input>
+        </div>
     </div>
     <div class="field container">
       <label class="label is-medium">Destination</label>
@@ -104,7 +104,7 @@
     $("#result").hide();
 
     $("#submit").click(() => {
-      console.log("origin " + $("#origin").val() + " | dest " + $("#destination").val());
+      console.log("Submitting request with (origin:" + $("#origin").val() + "),(destination:" + $("#destination").val() + ")");
       $.ajax({
         url: "http://localhost:8000",
         method: "POST",
@@ -117,7 +117,7 @@
         },
 
         success: (data) => {
-          console.log(data);
+          console.log("Successful request! Data: " + data);
           printSuccess(data);
         },
         error: () => {
@@ -129,8 +129,7 @@
     function printSuccess(data) {
 
       var mapName;
-
-
+      var screenShotPath;
       // Based on mapName, select a different map logo path
       var mapLogo = {
         "Google Maps": "./logos/Google_Maps_Logo.png",
@@ -140,10 +139,11 @@
         "MapQuest": "./logos/MapQuest_Logo.png"
       }
 
+      screenShotPath = "./routes/Google_Maps.png";
 
       function card(key) {
 
-        var html = '<div class="column is-one-third"><div class="card large"><div class="card-image"><figure class="image"> <img src="./routes/Google_Maps.png" alt="Image"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[key] + '" alt="Image"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + key + '</p> <p class="is-size-7">13 minutes</br>5.9 miles</br>Morris Ave and US-22 W</p> </div> </div> </div> </div> </div>';
+        var html = '<div class="column is-one-third"><div class="card"><div class="card-image"><figure class="image"> <img src="' + screenShotPath + '" alt="Image"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[key] + '" alt="Image"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + key + '</p> <p class="is-size-7">13 minutes</br>5.9 miles</br>Morris Ave and US-22 W</p> </div> </div> </div> </div> </div>';
 
         $("#cards").append(html);
       };
@@ -151,11 +151,8 @@
       for (var key in mapLogo) {
         card(key)
       }
-
-
-
+      
       $("#result").show();
-      console.log(data);
     }
 
 
