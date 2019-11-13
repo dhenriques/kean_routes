@@ -8,13 +8,13 @@ CORS(app)
 
 def sampleResults():
     json_string = """{
-   
       "0":{
          "mapName":"Google Maps",
          "screenShotPath":"Google_Maps.png",
          "eta":"13 minutes",
          "distance":"5.9 miles",
-         "route":"Morris Ave and US-22 W"
+         "route":"Morris Ave and US-22 W",
+         "url":""
       },
       "1":{
          "mapName":"Waze",
@@ -28,23 +28,25 @@ def sampleResults():
          "screenShotPath":"Google_Maps.png",
          "eta":"13 minutes",
          "distance":"5.9 miles",
-         "route":"Morris Ave and US-22 W"
+         "route":"Morris Ave and US-22 W",
+         "url":""
       },
       "3":{
          "mapName":"HERE WeGo",
          "screenShotPath":"Google_Maps.png",
          "eta":"13 minutes",
          "distance":"5.9 miles",
-         "route":"Morris Ave and US-22 W"
+         "route":"Morris Ave and US-22 W",
+         "url":""
       },
       "4":{
          "mapName":"MapQuest",
          "screenShotPath":"Google_Maps.png",
          "eta":"13 minutes",
          "distance":"5.9 miles",
-         "route":"Morris Ave and US-22 W"
-      }
-   
+         "route":"Morris Ave and US-22 W",
+         "url":""
+      } 
 }"""
 
     return json_string
