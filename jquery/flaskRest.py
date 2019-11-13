@@ -6,30 +6,53 @@ app = Flask(__name__)
 CORS(app)
 
 
-def results(origin, destination):
+def sampleResults():
     json_string = """{
-        "route": {
-            "mapName": "Google Maps",
-            "screenShotPath": "Google_Maps.png",
-            "eta": "13 minutes",
-            "distance": "5.9 miles",
-            "route": "Morris Ave and US-22 W",
-        }
-        "route": {
-            "mapName": "Waze",
-            "screenShotPath": "Google_Maps.png",
-            "eta": "13 minutes",
-            "distance": "5.9 miles",
-            "route": "Morris Ave and US-22 W",
-        }
-    }"""
+   
+      "0":{
+         "mapName":"Google Maps",
+         "screenShotPath":"Google_Maps.png",
+         "eta":"13 minutes",
+         "distance":"5.9 miles",
+         "route":"Morris Ave and US-22 W"
+      },
+      "1":{
+         "mapName":"Waze",
+         "screenShotPath":"Google_Maps.png",
+         "eta":"13 minutes",
+         "distance":"5.9 miles",
+         "route":"Morris Ave and US-22 W"
+      },
+      "2":{
+         "mapName":"Bing Maps",
+         "screenShotPath":"Google_Maps.png",
+         "eta":"13 minutes",
+         "distance":"5.9 miles",
+         "route":"Morris Ave and US-22 W"
+      },
+      "3":{
+         "mapName":"HERE WeGo",
+         "screenShotPath":"Google_Maps.png",
+         "eta":"13 minutes",
+         "distance":"5.9 miles",
+         "route":"Morris Ave and US-22 W"
+      },
+      "4":{
+         "mapName":"MapQuest",
+         "screenShotPath":"Google_Maps.png",
+         "eta":"13 minutes",
+         "distance":"5.9 miles",
+         "route":"Morris Ave and US-22 W"
+      }
+   
+}"""
 
     return json_string
 
 
 @app.route('/', methods=['POST', 'GET'])
 def route_query():
-    print(request.args)
+    print(request.args.to_dict())
     origin = request.args['origin']
     destination = request.args['destination']
 
@@ -37,7 +60,7 @@ def route_query():
 
     data = {}
     data['key'] = 'value'
-    json_data = json.dumps(results(origin, destination))
+    json_data = json.dumps(sampleResults())
 
     return ("%s(%s)" % (request.args.get('callback'), json_data))
 

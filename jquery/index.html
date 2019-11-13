@@ -51,12 +51,12 @@
     </div>
 
   </div>
-  <section class="is-fluid has-background-light section">
+  <section id="form" class="is-fluid has-background-light section">
     <div class="field container ">
-        <label class="label is-medium">Origin</label>
-        <div class="control">
-          <input id="origin" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ 07083"></input>
-        </div>
+      <label class="label is-medium">Origin</label>
+      <div class="control">
+        <input id="origin" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ 07083"></input>
+      </div>
     </div>
     <div class="field container">
       <label class="label is-medium">Destination</label>
@@ -127,7 +127,7 @@
     })
 
     function printSuccess(data) {
-
+      $("#form").hide();
       var mapName;
       var screenShotPath;
       // Based on mapName, select a different map logo path
@@ -142,25 +142,34 @@
       screenShotPath = "./routes/Google_Maps.png";
 
       function card(key) {
-
         var html = '<div class="column is-one-third"><div class="card"><div class="card-image"><figure class="image"> <img src="' + screenShotPath + '" alt="Image"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[key] + '" alt="Image"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + key + '</p> <p class="is-size-7">13 minutes</br>5.9 miles</br>Morris Ave and US-22 W</p> </div> </div> </div> </div> </div>';
-
         $("#cards").append(html);
       };
 
-      for (var key in mapLogo) {
-        card(key)
+      function card(mapName, screenShotPath, eta, distance, route) {
+        var html = '<div class="column is-one-third"><div class="card"><div class="card-image"><figure class="image"> <img src="./routes/' + screenShotPath + '" alt="Route screenshot"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[mapName] + '" alt=' + mapName + ' logo"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + mapName + '</p> <p class="is-size-7">' + eta + '</br>' + distance + '</br>' + route + '</p> </div> </div> </div> </div> </div>';
+        $("#cards").append(html);
       }
-      
+
+      var jsonObj = JSON.parse(data);
+
+      // for (var jsonRoute in Object.keys(jsonObj)){
+      //   card(jsonRoute.mapName, jsonRoute.screenShotPath, jsonRoute.eta, jsonRoute.distance, jsonRoute.route)
+      // }
+
+      for (const key of Object.keys(jsonObj)) {
+        console.log(key, jsonObj[key]);
+        card(jsonObj[key].mapName, jsonObj[key].screenShotPath, jsonObj[key].eta, jsonObj[key].distance, jsonObj[key].route);
+      }
+
+      // for (var key in mapLogo) {
+      //   card(key)
+      // }
+
+
       $("#result").show();
     }
-
-
   });
-
-
-
-
 </script>
 
 <footer class="footer has-background-light">
