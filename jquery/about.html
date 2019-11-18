@@ -1,85 +1,194 @@
 <!DOCTYPE html>
 <html lang="en" class="has-background-light">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KEAN Routes</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="icon" type="image/png" href="logos/Kean_Seal-2018.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KEAN Routes</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+<script src="https://kit.fontawesome.com/66403a1384.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="icon" type="image/png" href="logos/Kean_Seal-2018.png">
 
-    <div>
-        <section class="hero is-link is-bold is-medium">
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand ">
-                    <a class="navbar-item" href="/">
-                        <img src="./logos/Kean_Brand-2018-white.png" alt="Kean University" />
-                    </a>
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="burger">
-                        <span aria-hidden="true" style="color:white"></span>
-                        <span aria-hidden="true" style="color:white"></span>
-                        <span aria-hidden="true" style="color:white"></span>
-                    </a>
-                </div>
-
-                <div id="burger" class="navbar-menu">
-                    <div class="navbar-end has-text-right">
-                        <a class="navbar-item" href="index.html">
-                            Home
-                        </a>
-                        <a class="navbar-item" href="about.html">
-                            About
-                        </a>
-                    </div>
-                </div>
-            </nav>
-            <!-- <div class="container has-text-centered is-fluid hero-body">
-        <p>
-          <h1 class="title">About KEAN Routes</h1>
-          <h2 class="subtitle"></h2>
-        </p>
-      </div> -->
-        </section>
-</head>
-
-<body>
-    <section class="is-fluid section">
-        <div class="container has-text-left">
-            <h3 class="title is-3">About this project</h3>
-            <p>
-                KEAN Routes is an independent study conducted by Daniel Henriques under the
-                supervision of Dr. Daehan Kwak at Kean University. It allows the user to input their desired origin and destination, view all possible routes from five map applications, and select their preferred route.
-            </p>
-        </div>
-    </section>
-    <section class="is-fluid section">
-        <div class="container has-text-left">
-                <h3 class="title is-3">About me</h3>
-
-        </div>
-    </section>
-</body>
-
-
-<footer class="footer has-background-light">
-    <hr />
-    <div class="container">
-
-        <div class="columns">
-            <div class="level-left">
-                <a class="level-item" href="https://www.kean.edu">
-                    Kean University
+<div>
+    <section id="navbar" class="hero is-link is-bold is-medium">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand ">
+                <a class="navbar-item" href="/">
+                    <img src="./logos/Kean_Brand-2018-white.png" alt="Kean University" />
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="burger">
+                    <span aria-hidden="true" style="color:white"></span>
+                    <span aria-hidden="true" style="color:white"></span>
+                    <span aria-hidden="true" style="color:white"></span>
                 </a>
             </div>
-            <div class="column has-text-centered has-text-right-tablet">
-                <p class="subtitle is-6">
-                    &copy; 2019 Daniel Henriques - All rights reserved.
+
+            <div id="burger" class="navbar-menu">
+                <div class="navbar-end has-text-right">
+                    <a class="navbar-item" href="index.html">
+                        Home
+                    </a>
+                    <a class="navbar-item" href="about.html">
+                        About
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </section>
+    </head>
+
+    <body>
+        <section class="is-fluid section">
+            <div class="container has-text-left">
+                <h3 class="title is-3">About this project</h3>
+                <p>
+                    KEAN Routes is an independent study conducted by Daniel Henriques under the
+                    supervision of Dr. Daehan Kwak at Kean University. It allows the user to input their desired origin
+                    and
+                    destination, view all possible routes from five map applications, and select their preferred route.
                 </p>
+                <hr>
+            </div>
+
+
+            <div class="container has-text-left">
+                <h3 class="title is-3">About me</h3>
+                <p>
+                    Bio sample text
+                </p>
+                </br>
+                <div class="container">
+                    <span class="icon">
+                        <a href="https://www.linkedin.com/in/danielmhenriques/">
+                            <i class="fab fa-linkedin fa-2x fa-fw"></i>
+                        </a>
+                    </span>
+                    &nbsp;
+                    <span class="icon">
+                        <a href="https://github.com/dhenriques/">
+                            <i class="fab fa-github fa-2x fa-fw"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </section>
+    </body>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(
+                document.querySelectorAll(".navbar-burger"),
+                0
+            );
+
+            // Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener("click", () => {
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle("is-active");
+                        $target.classList.toggle("is-active");
+                    });
+                });
+            }
+
+            $("#result").hide();
+
+            $("#submit").click(() => {
+                console.log("Submitting request with (origin:" + $("#origin").val() + "),(destination:" + $("#destination").val() + ")");
+                $.ajax({
+                    url: "http://localhost:8000",
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+                    crossDomain: true,
+                    dataType: 'jsonp',
+                    data: {
+                        origin: $("#origin").val(),
+                        destination: $("#destination").val()
+                    },
+
+                    success: (data) => {
+                        console.log("Successful request! Data: " + data);
+                        printSuccess(data);
+                    },
+                    error: () => {
+                        alert("fail");
+                    },
+                })
+            })
+
+            function printSuccess(data) {
+                $("#form").hide();
+                var mapName;
+                var screenShotPath;
+                // Based on mapName, select a different map logo path
+                var mapLogo = {
+                    "Google Maps": "./logos/Google_Maps_Logo.png",
+                    "Waze": "./logos/Waze_Logo.png",
+                    "Bing Maps": "./logos/Bing_Maps_Logo.png",
+                    "HERE WeGo": "./logos/HERE_WeGo_Logo.png",
+                    "MapQuest": "./logos/MapQuest_Logo.png"
+                }
+
+                screenShotPath = "./routes/Google_Maps.png";
+
+                function card(key) {
+                    var html = '<div class="column is-one-third"><div class="card"><div class="card-image"><figure class="image"> <img src="' + screenShotPath + '" alt="Image"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[key] + '" alt="Image"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + key + '</p> <p class="is-size-7">13 minutes</br>5.9 miles</br>Morris Ave and US-22 W</p> </div> </div> </div> </div> </div>';
+                    $("#cards").append(html);
+                };
+
+                function card(mapName, screenShotPath, eta, distance, route) {
+                    var html = '<div class="column is-one-third"><div class="card"><div class="card-image"><figure class="image"> <img src="./routes/' + screenShotPath + '" alt="Route screenshot"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[mapName] + '" alt=' + mapName + ' logo"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + mapName + '</p> <p class="is-size-7">' + eta + '</br>' + distance + '</br>' + route + '</p> </div> </div> </div> </div> </div>';
+                    $("#cards").append(html);
+                }
+
+                var jsonObj = JSON.parse(data);
+
+                // for (var jsonRoute in Object.keys(jsonObj)){
+                //   card(jsonRoute.mapName, jsonRoute.screenShotPath, jsonRoute.eta, jsonRoute.distance, jsonRoute.route)
+                // }
+
+                for (const key of Object.keys(jsonObj)) {
+                    console.log(key, jsonObj[key]);
+                    card(jsonObj[key].mapName, jsonObj[key].screenShotPath, jsonObj[key].eta, jsonObj[key].distance, jsonObj[key].route);
+                }
+
+                // for (var key in mapLogo) {
+                //   card(key)
+                // }
+
+
+                $("#result").show();
+            }
+        });
+    </script>
+
+
+    <footer class="footer has-background-light">
+        <hr />
+        <div class="container">
+
+            <div class="columns">
+                <div class="level-left">
+                    <a class="level-item" href="https://www.kean.edu">
+                        Kean University
+                    </a>
+                </div>
+                <div class="column has-text-centered has-text-right-tablet">
+                    <p class="subtitle is-6">
+                        &copy; 2019 Daniel Henriques - All rights reserved.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 
 
