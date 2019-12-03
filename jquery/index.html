@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="has-background-light">
 
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,7 @@
     <section class="hero is-link is-bold is-medium">
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand ">
-          <a class="navbar-item" href="/">
+          <a class="navbar-item" href="https://www.kean.edu">
             <img src="./logos/Kean_Brand-2018-white.png" alt="Kean University" />
           </a>
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="burger">
@@ -38,52 +39,103 @@
     </section>
 </head>
 
-<body>
+<div class="modal" id="loading">
 
-  <div class="section container has-text-centered is-fluid">
-    <p>
+  <div class="modal-background"></div>
+  <div class="modal-content">
+
+    <div class="container has-text-centered">
+      <h1 class="title has-text-white">
+        Please wait
+      </h1>
+      <h2 class="subtitle has-text-grey-light">
+        This may take a minute
+      </h2>
+      <img alt="" src="./logos/loading.gif" />
+    </div>
+  </div>
+</div>
+
+<div class="container is-fluid">
+
+  <body>
+    <div class="section has-text-centered">
       <h1 class="title">Kean Routes</h1>
       <h2 class="subtitle">Find the best route accross multiple map applications</h2>
-    </p>
-  </div>
+    </div>
 
-
-
-  <div id="result" class="is-fluid">
-    <div class="container">
+    <div id="result" class="section">
       <div id="cards" class="row columns is-multiline">
       </div>
     </div>
-  </div>
 
-  <section id="form">
-    <div class="container is-fluid">
-      <div class="field">
-        <label class="label is-medium">Origin</label>
-        <div class="control">
-          <input id="origin" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ 07083"></input>
-        </div>
-      </div>
-      <div class="field">
-        <label class="label is-medium">Destination</label>
-        <div class="control">
-          <input id="destination" class="input is-medium" type="text"
-            placeholder="1000 Morris Ave, Union, NJ 07083"></input>
-        </div>
-      </div>
+    <div class="section">
 
-      <div class="field is-grouped">
-        <div class="control">
-          <button id="submit" class="control button is-link">Submit</button>
-        </div>
-        <div class="control">
-          <button class="control button is-light">Cancel</button>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <label class="label">Origin</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <input id="origin" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ"
+              style="max-width: 450px;"></input>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
-</body>
+    <div class="field is-horizontal">
+      <div class="field-label is-medium">
+        <label class="label">Destination</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <input id="origin" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ"
+              style="max-width: 450px;"></input>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <!-- Left empty for spacing -->
+      </div>
+      <div class="field-body">
+        <div class="field is-grouped">
+          <div class="control">
+            <button id="submit" class="control button is-link">Submit</button>
+          </div>
+          <div class="control">
+            <button id="clear" class="control button is-light">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+
+  <footer class="footer has-background-light">
+      <hr />
+    
+      <div class="has-text-grey-light has-text-centered">
+        <p class=" is-6">
+         Copyright &copy 2019 Daniel Henriques
+        </p>
+      </div>
+      </div>
+    
+    </footer>
+</div>
+
+
+
+</div>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -111,7 +163,15 @@
 
     $("#result").hide();
 
+    function test() {
+      $("#origin").val('');
+      $("#destination").val('');
+    }
+
+    $("#clear").on('click', test);
+
     $("#submit").click(() => {
+      $("#loading").toggleClass("is-active");
       console.log("Submitting request with (origin:" + $("#origin").val() + "),(destination:" + $("#destination").val() + ")");
       $.ajax({
         url: "http://localhost:8000",
@@ -125,11 +185,13 @@
         },
 
         success: (data) => {
+          $("#loading").toggleClass("is-active");
           console.log("Successful request! Data: " + data);
           printSuccess(data);
         },
         error: () => {
-          alert("fail");
+          $("#loading").toggleClass("is-active");
+          alert("Error: data was not retrieved successfully");
         },
       })
     })
@@ -161,42 +223,14 @@
 
       var jsonObj = JSON.parse(data);
 
-      // for (var jsonRoute in Object.keys(jsonObj)){
-      //   card(jsonRoute.mapName, jsonRoute.screenShotPath, jsonRoute.eta, jsonRoute.distance, jsonRoute.route)
-      // }
 
       for (const key of Object.keys(jsonObj)) {
         console.log(key, jsonObj[key]);
         card(jsonObj[key].mapName, jsonObj[key].screenShotPath, jsonObj[key].eta, jsonObj[key].distance, jsonObj[key].route);
       }
-
-      // for (var key in mapLogo) {
-      //   card(key)
-      // }
-
-
       $("#result").show();
     }
   });
 </script>
-
-<footer class="footer has-background-light">
-  <hr />
-  <div class="container">
-
-    <div class="columns">
-      <div class="level-left">
-        <a class="level-item" href="https://www.kean.edu">
-          Kean University
-        </a>
-      </div>
-      <div class="column has-text-centered has-text-right-tablet">
-        <p class="subtitle is-6">
-          &copy; 2019 Daniel Henriques - All rights reserved.
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
 
 </html>
