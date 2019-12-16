@@ -18,22 +18,22 @@ def sampleResults():
       },
       "1":{
          "mapName":"Waze",
-         "screenShotPath":"Google_Maps.png",
+         "screenShotPath":"Waze.png",
          "eta":"14 minutes",
          "distance":"5.9 miles",
          "route":"Morris Ave and US-22 W"
       },
       "2":{
          "mapName":"Bing Maps",
-         "screenShotPath":"Google_Maps.png",
-         "eta":"16 minutes",
-         "distance":"5.9 miles",
+         "screenShotPath":"Bing_Maps.png",
+         "eta":"17 minutes",
+         "distance":"5.5 miles",
          "route":"Morris Ave and US-22 W",
          "url":""
       },
       "3":{
          "mapName":"HERE WeGo",
-         "screenShotPath":"Google_Maps.png",
+         "screenShotPath":"HERE_WeGo.png",
          "eta":"15 minutes",
          "distance":"5.9 miles",
          "route":"Morris Ave and US-22 W",
@@ -41,9 +41,9 @@ def sampleResults():
       },
       "4":{
          "mapName":"MapQuest",
-         "screenShotPath":"Google_Maps.png",
-         "eta":"14 minutes",
-         "distance":"5.9 miles",
+         "screenShotPath":"MapQuest.png",
+         "eta":"13 minutes",
+         "distance":"6.1 miles",
          "route":"Morris Ave and US-22 W",
          "url":""
       } 

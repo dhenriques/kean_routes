@@ -93,7 +93,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <input id="origin" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ"
+            <input id="destination" class="input is-medium" type="text" placeholder="1000 Morris Ave, Union, NJ"
               style="max-width: 450px;"></input>
           </div>
         </div>
@@ -200,6 +200,7 @@
       $("#form").hide();
       var mapName;
       var screenShotPath;
+
       // Based on mapName, select a different map logo path
       var mapLogo = {
         "Google Maps": "./logos/Google_Maps_Logo.png",
@@ -209,12 +210,10 @@
         "MapQuest": "./logos/MapQuest_Logo.png"
       }
 
-      screenShotPath = "./routes/Google_Maps.png";
-
-      function card(key) {
-        var html = '<div class="column is-one-third"><div class="card"><div class="card-image"><figure class="image"> <img src="' + screenShotPath + '" alt="Image"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[key] + '" alt="Image"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + key + '</p> <p class="is-size-7">13 minutes</br>5.9 miles</br>Morris Ave and US-22 W</p> </div> </div> </div> </div> </div>';
-        $("#cards").append(html);
-      };
+      // function card(key) {
+      //   var html = '<div class="column is-one-third"><div class="card"><div class="card-image"><figure class="image"> <img src="' + screenShotPath + '" alt="Image"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[key] + '" alt="Image"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + key + '</p> <p class="is-size-7">13 minutes</br>5.9 miles</br>Morris Ave and US-22 W</p> </div> </div> </div> </div> </div>';
+      //   $("#cards").append(html);
+      // };
 
       function card(mapName, screenShotPath, eta, distance, route) {
         var html = '<div class="column is-one-third"><div class="card"><div class="card-image"><figure class="image"> <img src="./routes/' + screenShotPath + '" alt="Route screenshot"> </figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-64x64"> <img src="' + mapLogo[mapName] + '" alt=' + mapName + ' logo"> </figure> </div> <div class="media-content"> <p class="is-size-6 is-bold">' + mapName + '</p> <p class="is-size-7">' + eta + '</br>' + distance + '</br>' + route + '</p> </div> </div> </div> </div> </div>';
